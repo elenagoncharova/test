@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Art Salon</title>
+    <link rel="stylesheet" href="scss/index.css">
+</head>
+<body>
+
+<div class="connect">
+    <form>
+        <input id="inp" type="text" placeholder="Напишите ваше имя..." value="" required autofocus name="">
+        <span class="error">Напишите Ваше Имя!</span>
+        <button type="button" id="save_name">Отправить</button>
+    </form>
+</div>
+
+<div class="popup_body">
+    <div class="content">
+        <div class="name_manager">
+            <div class="img_block" style="background-image: url(image/avatar.jpg)"></div>
+            <div class="text">
+                <h3>Вероника Ростова</h3>
+                <span>Менеджер по продажам</span>
+                <p>
+                    Подберу для вас самые лучшие предложения.
+                    Мои услуги абсолютно бесплатны
+                </p>
+            </div>
+        </div>
+        <div class="block_inform">
+            <div class="progress_block">
+                <h6>Услуг</h6>
+                <div class="progressbar">
+                    <div class="line" style="width: 40%; background-color: #b1e19b;"></div>
+                    <div class="text_top">
+                        <span>Ручное бронирование</span>
+                        <span class="sum">11</span>
+                    </div>
+                </div>
+                <div class="progressbar">
+                    <div class="line" style="width: 15%; background-color: #ace2f8;"></div>
+                    <div class="text_top">
+                        <span>Пакетные туры</span>
+                        <span class="sum">3</span>
+                    </div>
+                </div>
+                <div class="progressbar">
+                    <div class="line" style="width: 10%; background-color: #ace2f8;"></div>
+                    <div class="text_top">
+                        <span>Отели</span>
+                        <span class="sum">1</span>
+                    </div>
+                </div>
+                <div class="total">
+                    <span>Всего</span>
+                    <span class="sum_total">15</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="reviews">
+            <div class="last_item">
+                <div>
+                    <h6>Последние отзывы</h6>
+                    <a href="#" class="all">Все отзывы</a>
+                </div>
+                <div class="like_block">
+                    <a href="#"><img src="image/icon.png" alt="">131</a>
+                    <a href="#"><img src="image/icon_1.png" alt="">14</a>
+                </div>
+            </div>
+
+
+            <div class="body_reviews">
+                <div class="block_reviews new_post">
+                    <div class="item">
+                        <div class="top">
+                            <span class="name_user">{{name_user}}</span>
+                            <span class="data_post">{{data}}</span>
+                        </div>
+                        <div class="text_user">{{text_user}}</div>
+                    </div>
+                </div>
+
+                <div class="block_reviews">
+                    <div class="item">
+                        <div class="top">
+                            <span class="name_user">Самуил</span>
+                            <span class="data_post">13 октября 2011</span>
+                        </div>
+                        <div class="text_user">Привет, Верунь! ниче себе ты крутая. фотка класс!!!!</div>
+                    </div>
+                </div>
+
+                <div class="block_reviews">
+                    <div class="item">
+                        <div class="top">
+                            <span class="name_user">Лилия Семёновна</span>
+                            <span class="data_post">14 октября 2011</span>
+                        </div>
+                        <div class="text_user">
+                            Вероника, здравствуйте! Есть такой вопрос: Особый вид куниц жизненно стабилизирует кинетический
+                            момент, это и есть всемирно известный центр огранки алмазов и торговли бриллиантами?
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block_reviews">
+                    <div class="item">
+                        <div class="top">
+                            <span class="name_user">Лилия Семёновна</span>
+                            <span class="data_post">14 октября 2011</span>
+                        </div>
+                        <div class="text_user">
+                            Вероника, здравствуйте! Есть такой вопрос: Особый вид куниц жизненно стабилизирует кинетический момент?
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form class="write">
+        <textarea id="text_user"></textarea>
+        <button type="submit">Написать консультанту</button>
+    </form>
+</div>
+
+
+<footer>
+
+</footer>
+
+<script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<!--<script src="js/jquery.maskedinput.js"></script>-->
+<script src="js/script.js"></script>
+</body>
+</html>

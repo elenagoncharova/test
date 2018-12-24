@@ -1,0 +1,233 @@
+<html>
+
+<head>
+
+    <title>Тестируем Cookies</title>
+
+    <style type="text/css">
+
+        /* headings */
+
+        h1, h2 { margin-bottom: 4px; }
+
+        h1 { font-size: 16pt; }
+
+        h2 { font-size: 12pt; color: darkred; }
+
+
+
+        /* element styles */
+
+        div
+
+        {
+
+            width: 600px;
+
+            border: 1px dashed darkgray;
+
+            padding: 5px;
+
+        }
+
+
+
+        #data
+
+        {
+
+            font-style: italic;
+
+        }
+
+
+
+        .normal { color: darkgreen; }
+
+        .empty { color: gray; }
+
+    </style>
+
+    <script type="text/javascript">
+
+        // UI utilities
+
+        $ = function(id) { return document.getElementById(id); }
+
+        if (window.attachEvent)
+
+        {
+
+            window.addEventListener = function(eventName, func, args)
+
+            {
+
+                window.attachEvent('on' + eventName,
+
+                    function() { func(window.event, args); })
+
+            }
+
+        }
+
+
+
+        // cookies utilities
+
+        getCookies = function()
+
+        {
+
+            var cookies = {};
+
+
+
+            var items = document.cookie.split("; ");
+
+            for (var ii = 0; ii < items.length; ii++)
+
+            {
+
+                var keyValuePair = items[ii].split("=");
+
+
+
+                cookies[keyValuePair[0]] = decodeURIComponent(keyValuePair[1]);
+
+            }
+
+
+
+            return cookies;
+
+        }
+
+
+
+        setCookie = function(key, value, expires)
+
+        {
+
+            document.cookie =
+
+                key + "=" + (value ? encodeURIComponent(value) : "")
+
+                + ";expires=" + expires.toGMTString();
+
+        }
+
+
+
+        // main
+
+        var storageKey = "MyNote";
+
+
+
+        function TryLoadData()
+
+        {
+
+            var data = $("data");
+
+
+
+            var cookies = getCookies();
+
+
+
+            var value = cookies[storageKey];
+
+            if (value != null)
+
+            {
+
+                data.className = "normal";
+
+                data.innerHTML = value;
+
+            }
+
+            else
+
+            {
+
+                data.className = "empty";
+
+                data.innerHTML = "(пусто)";
+
+            }
+
+        }
+
+
+
+        function Window_Load()
+
+        {
+
+            TryLoadData();
+
+        }
+
+
+
+        function Save_Click()
+
+        {
+
+            var t = $("textbox");
+
+
+
+            var dt = new Date();
+
+            dt.setHours(dt.getHours() + 1);
+
+
+
+            setCookie(storageKey, t.value, dt);
+
+
+
+            TryLoadData();
+
+        }
+
+
+
+        window.addEventListener("load", Window_Load, null);
+
+    </script>
+
+</head>
+
+<body>
+
+<h1>Тестируем Cookies</h1>
+
+
+
+<h2>Введите данные:</h2>
+
+<div>
+
+    <textarea id="textbox" rows="6" cols="40"></textarea>
+
+    <br />
+
+    <input type="button" value="Сохранить" onclick="Save_Click()" />
+
+</div>
+
+
+
+<br />
+
+<h2>Сохраненные данные:</h2>
+
+<div id="data"></div>
+
+</body>
+
+</html>
